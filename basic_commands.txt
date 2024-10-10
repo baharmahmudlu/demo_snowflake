@@ -77,3 +77,22 @@ copy into TABLE_NAME
 from @FILE_FORMAT_PATH
 files = ( 'STAGE_FILE_NAME' )
 file_format = ( format_name=FILE_FORMAT_NAME_PATH );
+
+# SEQUENCE 
+# we can create a sequence as a unique identifier to use when we insert into a table
+create or replace sequence DB_NAME.SCHEMA_NAME.SEQUENCE_NAME
+start = START_NUMBER 
+increment = INCREMENT_NUMBER
+order
+comment = 'YOUR_COMMENT_HERE';
+
+// sample to use
+insert into TABLE_NAME(ID_COL,COL2, COL3) 
+values
+(seq_author_uid.nextval, 'Laura', 'K')
+,(seq_author_uid.nextval, 'Jan', '')
+,(seq_author_uid.nextval, 'Jennifer', '')
+,(seq_author_uid.nextval, 'Kathleen', '');
+
+
+
