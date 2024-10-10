@@ -63,3 +63,29 @@ select raw_status:user:name::text as user_name
 from tweet_ingest
 ,lateral flatten
 (input => raw_status:entities:hashtags);
+
+
+-- CREATE A VIEW FROM TWEET_INGEST DATA - the URL Data Looking "Normalized"
+create or replace view social_media_floodgates.public.urls_normalized as
+(select raw_status:user:name::text as user_name
+,raw_status:id as tweet_id
+,value:display_url:text as url_used
+from tweet_ingest
+,lateral flatten
+(input => raw_status:entities:urls)
+);
+
+
+--  CREATE A VIEW FROM TWEET_INGEST DATA - Makes the Hashtag Data Appear Normalized
+create or replace view social_media_floodgates.public.hashtags_normalized as
+(select raw_status:user:name::text as user_name
+,raw_status:id as tweet_id
+,value:text::varchar as hastag_used
+from tweet_ingest
+,lateral flatten
+(input => raw_status:entities:hashtags)
+);
+
+select * from social_media_floodgates.public.hashtags_normalized;
+
+
