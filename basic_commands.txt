@@ -1,0 +1,4 @@
+use database DB_NAME;
+use schema SCHEMA_NAME;
+use role ROLE_NAME;
+
