@@ -46,3 +46,8 @@ create file format DB_NAME.SCHEMA_NAME.FILE_FORMAT_NAME
     skip_header = 1  # one header row to skip
     ;
 
+# COPY INTO TABLE FROM STAGE 
+copy into TABLE_NAME
+from @FILE_FORMAT_PATH
+files = ( 'STAGE_FILE_NAME' )
+file_format = ( format_name=FILE_FORMAT_NAME_PATH );
