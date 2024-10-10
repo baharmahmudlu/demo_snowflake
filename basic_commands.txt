@@ -47,11 +47,23 @@ create file format DB_NAME.SCHEMA_NAME.FILE_FORMAT_NAME
     ;
 
 create file format DB_NAME.SCHEMA_NAME.FILE_FORMAT_NAME 
-    type = 'CSV'--csv for comma separated files
-    field_delimiter = ',' --commas as column separators
+    type = 'CSV'  # csv for comma separated files
+    field_delimiter = ','  # commas as column separators
     skip_header = 1 --one header row  
-    FIELD_OPTIONALLY_ENCLOSED_BY = '"' --this means that some values will be wrapped in double-quotes bc they have commas in them
+    FIELD_OPTIONALLY_ENCLOSED_BY = '"'  # this means that some values will be wrapped in double-quotes bc they have commas in them
     ;
+
+create file format DB_NAME.SCHEMA_NAME.FILE_FORMAT_NAME
+    type = 'CSV'
+    field_delimiter = '\t'  # tab as column separators
+    skip_header = 1
+    ;
+
+# SELECT FROM STAGE DIRECTLY
+# before selecting we need to add file to stage (database -> schema -> create btn -> stage btn -> snowflake managed btn -> upload)
+select $1, $2, $3
+from @DB_NAME.SCHEMA_NAME.STAGE_NAME/FILE_NAME
+(file_format => FILE_FORMAT_NAME_PATH );
 
 # COPY INTO TABLE FROM STAGE 
 copy into TABLE_NAME
