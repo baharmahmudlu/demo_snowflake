@@ -66,6 +66,12 @@ create file format DB_NAME.SCHEMA_NAME.FILE_FORMAT_NAME
     skip_header = 1
     ;
 
+//Create File Format for JSON Data 
+create or replace file format DB_NAME.SCHEMA_NAME.FILE_FORMAT_NAME
+type = 'JSON' 
+compression = 'AUTO' 
+strip_outer_array = TRUE; 
+
 # SELECT FROM STAGE DIRECTLY
 # before selecting we need to add file to stage (database -> schema -> create btn -> stage btn -> snowflake managed btn -> upload)
 select $1, $2, $3
