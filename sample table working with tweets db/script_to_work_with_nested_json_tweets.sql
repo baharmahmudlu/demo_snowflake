@@ -37,3 +37,14 @@ where raw_status:entities:hashtags[0].text is not null;
 select raw_status:created_at::date
 from tweet_ingest
 order by raw_status:created_at::date;
+
+
+-- Flatten statements can return nested entities only (and ignore the higher level objects)
+select value
+from tweet_ingest
+,lateral flatten
+(input => raw_status:entities:urls);
+
+select value
+from tweet_ingest
+,table(flatten(raw_status:entities:urls));
