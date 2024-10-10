@@ -1,4 +1,32 @@
+# CREATE
+create database DB_NAME;
+create schema SCHEMA_NAME;
+create role ROLE_NAME;
+
+# USE
 use database DB_NAME;
 use schema SCHEMA_NAME;
 use role ROLE_NAME;
 
+# DROP
+drop database DB_NAME;
+drop schema SCHEMA_NAME;
+drop role ROLE_NAME;
+
+# SHOW
+show schemas;
+show tables;
+show schemas in account;
+show tables in account;
+
+# CREATE TABLE
+create or replace table TABLE_NAME (
+    COL1 data_type,
+    COL2 data_type,
+);
+
+# INSERT INTO TABLE
+insert into TABLE_NAME values (VAL1, VAL2);
+
+# UPDATE VALUE IN TABLE
+update TABLE_NAME set COL = VAL where CONDITION
