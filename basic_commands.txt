@@ -25,6 +25,13 @@ create or replace table TABLE_NAME (
     COL2 data_type,
 );
 
+# CREATE TABLE WITH AUTOINCREMENT to generate a UID for each new row
+create or replace table TABLE_NAME
+( ID number autoincrement
+ , COL2 varchar(50)
+ , COL3 number(4,0)
+);
+
 # INSERT INTO TABLE
 insert into TABLE_NAME values (VAL1, VAL2);
 
