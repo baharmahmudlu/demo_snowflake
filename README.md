@@ -1,1 +1,1 @@
-This repo is about snowflake scripts and contains useful commands
+This repo is about snowflake scripts/notebook/streamlit and contains useful commands
