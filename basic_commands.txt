@@ -37,3 +37,12 @@ where CONDITION;
 
 # CLEAN WHOLE TABLE
 truncate table TABLE_NAME;
+
+
+# CREATE FILE FORMAT TO STORE DATA FROM STAGE
+create file format DB_NAME.SCHEMA_NAME.FILE_FORMAT_NAME 
+    type = 'CSV'  # csv is used for any flat file (tsv, pipe-separated, etc)
+    field_delimiter = '|'  # pipes as column separators
+    skip_header = 1  # one header row to skip
+    ;
+
