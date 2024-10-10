@@ -31,5 +31,9 @@ insert into TABLE_NAME values (VAL1, VAL2);
 # UPDATE VALUE IN TABLE
 update TABLE_NAME set COL = VAL where CONDITION
 
+# REMOVE ROW FROM TABLE
+delete from TABLE_NAME
+where CONDITION;
+
 # CLEAN WHOLE TABLE
 truncate table TABLE_NAME;
