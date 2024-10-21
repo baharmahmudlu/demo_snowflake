@@ -22,6 +22,9 @@ show tables in account;
 # ALTER DATABASE NAME
 alter database DB_NAME rename to NEW_DB_NAME;
 
+# GRANT ROLE TO DB
+grant imported privileges on database DB_NAME to role ROLE_NAME;
+
 # CREATE TABLE
 create or replace table TABLE_NAME (
     COL1 data_type,
@@ -47,7 +50,6 @@ where CONDITION;
 
 # CLEAN WHOLE TABLE
 truncate table TABLE_NAME;
-
 
 # CREATE FILE FORMAT TO STORE DATA FROM STAGE
 create file format DB_NAME.SCHEMA_NAME.FILE_FORMAT_NAME 
