@@ -19,6 +19,7 @@ show tables;
 show schemas in account;
 show tables in account;
 show resource monitors in account;
+show shares in account;
 
 # ALTER DATABASE NAME
 alter database DB_NAME rename to NEW_DB_NAME;
