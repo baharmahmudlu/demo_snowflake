@@ -26,6 +26,7 @@ alter database DB_NAME rename to NEW_DB_NAME;
 
 # GRANT ROLE TO DB
 grant imported privileges on database DB_NAME to role ROLE_NAME;
+grant on schema SCHEMA_NAME to role ROLE_NAME;
 
 # CREATE TABLE
 create or replace table TABLE_NAME (
