@@ -88,6 +88,17 @@ type = 'JSON'
 compression = 'AUTO' 
 strip_outer_array = TRUE; 
 
+//Create file format to allow the 3 column file to be loaded into an 18 column table
+// By parsing the header, Snowflake can infer the column names
+create or replace file format DB_NAME.SCHEMA_NAME.FILE_FORMAT_NAME
+type = 'CSV' 
+field_delimiter = ',' 
+record_delimiter = '\n' 
+field_optionally_enclosed_by = '"'
+trim_space = TRUE
+error_on_column_count_mismatch = FALSE
+parse_header = TRUE;
+
 # SELECT FROM STAGE DIRECTLY
 # before selecting we need to add file to stage (database -> schema -> create btn -> stage btn -> snowflake managed btn -> upload)
 select $1, $2, $3
