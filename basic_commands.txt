@@ -116,5 +116,8 @@ values
 ,(seq_author_uid.nextval, 'Jennifer', '')
 ,(seq_author_uid.nextval, 'Kathleen', '');
 
+# CREATE VARIABLE AND SELECT
+set VAR_NAME = 'VAR_VALUE';
 
+select $VAR_NAME;
 
