@@ -107,9 +107,15 @@ from @DB_NAME.SCHEMA_NAME.STAGE_NAME/FILE_NAME
 
 # COPY INTO TABLE FROM STAGE 
 copy into TABLE_NAME
-from @FILE_FORMAT_PATH
+from @FILE_PATH
 files = ( 'STAGE_FILE_NAME' )
 file_format = ( format_name=FILE_FORMAT_NAME_PATH );
+
+//copy into a table by using file format that allows the 3 column file to be loaded into an 18 column table
+copy into TABLE_NAME
+from @FILE_PATH
+file_format = ( format_name=FILE_FORMAT_NAME_PATH )
+match_by_column_name='CASE_INSENSITIVE';
 
 # SEQUENCE 
 # we can create a sequence as a unique identifier to use when we insert into a table
