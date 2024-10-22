@@ -3,6 +3,14 @@ create database DB_NAME;
 create schema SCHEMA_NAME;
 create role ROLE_NAME;
 
+# CREATE WAREHOUSE
+create warehouse WH_NAME 
+with 
+warehouse_size = 'SIZE_OF_WH'  -- 'XSMALL' 
+warehouse_type =  'TYPE_OF_WH' -- 'STANDARD' 
+auto_suspend = 600 --600 seconds/10 mins
+auto_resume = TRUE;
+
 # USE
 use database DB_NAME;
 use schema SCHEMA_NAME;
