@@ -32,6 +32,9 @@ show shares in account;
 # ALTER DATABASE NAME
 alter database DB_NAME rename to NEW_DB_NAME;
 
+# ALTER TABLE 
+alter table TABLE_NAME add column COL_NAME varchar(<number_of_characters>);
+
 # GRANT ROLE TO DB
 grant imported privileges on database DB_NAME to role ROLE_NAME;
 grant all privileges on schema SCHEMA_NAME to role ROLE_NAME;
